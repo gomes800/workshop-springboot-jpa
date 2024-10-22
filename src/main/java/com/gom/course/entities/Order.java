@@ -1,6 +1,8 @@
 package com.gom.course.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.gom.course.entities.enums.OrderStatus;
 import jakarta.persistence.*;
 
@@ -28,6 +30,7 @@ public class Order implements Serializable {
     private User client;
 
     @OneToMany(mappedBy = "id.order")
+    @JsonManagedReference
     private Set<OrderItem> items = new HashSet<>();
 
     public Order() {

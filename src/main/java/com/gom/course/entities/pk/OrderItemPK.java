@@ -1,5 +1,6 @@
 package com.gom.course.entities.pk;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.gom.course.entities.Order;
 import com.gom.course.entities.Product;
 import jakarta.persistence.Embeddable;
@@ -14,6 +15,7 @@ public class OrderItemPK implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "order_id")
+    @JsonBackReference
     private Order order;
 
     @ManyToOne
